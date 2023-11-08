@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SellerService } from 'src/app/services/seller.service';
 import { Router } from '@angular/router';
-import { SingUp } from 'src/app/data-types';
+import { SingUp, login } from 'src/app/data-types';
 
 @Component({
   selector: 'app-seller-auth',
@@ -11,6 +11,7 @@ import { SingUp } from 'src/app/data-types';
 export class SellerAuthComponent implements OnInit {
 
   showLogin: boolean = false;
+  authError: string = ''
 
   constructor(
     private seller: SellerService
@@ -24,10 +25,13 @@ export class SellerAuthComponent implements OnInit {
     this.seller.userSignUp(data)
   }
 
-  login(data: SingUp): void {
+  login(data: login): void {
     this.seller.userLogin(data)
-   console.warn(data)
-
+    this.seller.isLoginError.subscribe((error)=>{
+      if(error){
+        this.authError = "EMAIL OU SENHA NÃO CORREPONSE"
+      }
+    })
   }
 
   openLogin(){

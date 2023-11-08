@@ -33,4 +33,32 @@ body{
   flex-direction: column;
   width: 300px;
 }
+.error-p{
+  color: red;
+}
 
+.message-p{
+  color: green;
+  text-align: center;
+}
+.carousel-caption{
+  background-color: #0000007d;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+  background-color: black;
+  border-radius: 5px;
+}
+
+.invalid-input{
+  font-size: 12px;
+  margin-top: -20px;
+}
+
+ button:disabled{
+  cursor: not-allowed;
+}
+
+.max-with{
+  width: 100%;
+}
